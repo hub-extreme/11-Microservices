@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: ' yuvrajdocker', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'yuvrajdocker', toolName: 'docker') {
                         sh "docker build -t  yuvrajdocker001/productcatalogservice:latest ."
                     }
                 }
@@ -15,7 +15,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: ' yuvrajdocker', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'yuvrajdocker', toolName: 'docker') {
                         sh "docker push yuvrajdocker001/productcatalogservice:latest "
                     }
                 }
