@@ -5,8 +5,8 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: ' yuvrajdocker', toolName: 'docker') {
-                        sh "docker build -t  yuvrajdocker001/loadgenerator:latest ."
+                    withDockerRegistry(credentialsId: 'yuvrajdocker', toolName: 'docker') {
+                        sh "docker build -t yuvrajdocker001/loadgenerator:latest ."
                     }
                 }
             }
@@ -15,8 +15,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: ' yuvrajdocker', toolName: 'docker') {
-                        sh "docker push  yuvrajdocker001/loadgenerator:latest"
+                    withDockerRegistry(credentialsId: 'yuvrajdocker', toolName: 'docker') {
+                        sh "docker push yuvrajdocker001/loadgenerator:latest"
                     }
                 }
             }
